@@ -27,3 +27,7 @@ $ npm install --save reactstrap@next
 ```bash
 $ npm install --save redux react-redux
 ```
+- react-codemirror
+```bash
+$ npm install react-codemirror --save
+```
