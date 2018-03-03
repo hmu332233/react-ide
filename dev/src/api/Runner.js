@@ -3,7 +3,6 @@ const socket = io();
 
 class Runner {
   static run(data, callback) {
-    console.log('test');
     socket.once('/runner/run', function (err, data) {
       if (err) {
         console.error(err);

@@ -16,7 +16,7 @@ class App extends Component {
         }
         increment();
       
-        Runner.run({code: '123'}, (data) => {
+        Runner.run({code: 'console.log("test");'}, (data) => {
           console.log(data);
         });
     }

@@ -1,1 +1,1 @@
-console.log('hello, minung!');
+console.log("test");
