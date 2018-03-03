@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
 import Editor from 'components/Editor'
-import Compiler from 'api/Compiler'
+import Runner from 'api/Runner'
 
 class App extends Component {
     state = {
@@ -16,7 +16,7 @@ class App extends Component {
         }
         increment();
       
-        Compiler.compile({code: '123'}, (data) => {
+        Runner.run({code: '123'}, (data) => {
           console.log(data);
         });
     }

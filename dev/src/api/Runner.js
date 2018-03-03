@@ -1,18 +1,18 @@
 import io from 'socket.io-client';
 const socket = io();
 
-class Compiler {
-  static compile(data, callback) {
+class Runner {
+  static run(data, callback) {
     console.log('test');
-    socket.on('/compile', function (err, data) {
+    socket.once('/runner/run', function (err, data) {
       if (err) {
         console.error(err);
         return;
       }
       callback(data);
     });
-    socket.emit('/compile', data);
+    socket.emit('/runner/run', data);
   }
 }
 
-export default Compiler;
+export default Runner;
