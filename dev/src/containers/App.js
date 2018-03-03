@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
 import Editor from 'components/Editor'
+import Runner from 'api/Runner'
 
 class App extends Component {
     state = {
@@ -14,6 +15,10 @@ class App extends Component {
             setTimeout(increment, 1000);
         }
         increment();
+      
+        Runner.run({code: 'console.log("test");'}, (data) => {
+          console.log(data);
+        });
     }
     
     render() {
