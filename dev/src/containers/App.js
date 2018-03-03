@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
+import Editor from 'components/Editor'
 
 class App extends Component {
     state = {
@@ -19,6 +20,7 @@ class App extends Component {
         return (
           <div>
           	<Hello name={`React with Webpack2 (${this.state.number})`}/>
+          	<Editor />
           </div>
         );
     }
