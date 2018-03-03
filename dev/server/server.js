@@ -13,14 +13,7 @@ var server = app.listen(3000, () => {
 });
 
 
+// socket
 var io = require('socket.io')(server);
-
-io.on('connection', function(socket) {
-  console.log('connect!');
-  
-  socket.on('/compile', function (data) {
-    
-    console.log('/compile');
-    socket.emit('/compile', null, data);
-  });
-});
+var socket_index = require('./routes/socket.js');
+socket_index.init(io);
