@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
 import Editor from 'components/Editor'
+import Compiler from 'api/Compiler'
 
 class App extends Component {
     state = {
@@ -14,6 +15,10 @@ class App extends Component {
             setTimeout(increment, 1000);
         }
         increment();
+      
+        Compiler.compile({code: '123'}, (data) => {
+          console.log(data);
+        });
     }
     
     render() {
