@@ -131,5 +131,8 @@ module.exports = {
             paths.context,
             'node_modules'
         ]
+    },
+    externals: {
+      jquery: 'jQuery',
     }
 };

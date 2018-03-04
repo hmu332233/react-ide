@@ -18,8 +18,10 @@ class Editor extends React.Component {
       mode: 'javascript',
       theme: 'material'
     };
+    var className = this.props.className;
     return (
       <CodeMirror
+        className={className}
         value={this.state.value}
         options={options}
         onBeforeChange={(editor, data, value) => {
