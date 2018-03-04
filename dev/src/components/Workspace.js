@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Tabs from './Tabs'
 import Editor from './Editor'
 
 class Workspace extends React.Component {
@@ -13,20 +14,7 @@ class Workspace extends React.Component {
   render() {
     return (
       <div className="workspace">
-        <ul className="workspace__tabs nav nav-tabs">
-          <li className="nav-item">
-            <a className="workspace__tab nav-link active" href="#">test1.js</a>
-          </li>
-          <li className="nav-item">
-            <a className="workspace__tab nav-link" href="#">test2.js</a>
-          </li>
-          <li className="nav-item">
-            <a className="workspace__tab nav-link" href="#">test3.js</a>
-          </li>
-          <li className="nav-item">
-            <a className="workspace__tab nav-link" href="#">test4.js</a>
-          </li>
-        </ul>
+        <Tabs className="workspace__tabs"/>
         <Editor className="workspace__editor"/>
       </div>
     );
