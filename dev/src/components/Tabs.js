@@ -6,29 +6,60 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'test'
+      files: props.files
     }
   }
 
+  onChangeFile(index) {
+    
+  }
+  
+  onClickTab() {
+     console.log('test');
+  }
+  
   render() {
-    var className = this.props.className;
+    const className = this.props.className;
+    const tabElements = this.state.files.map(file => {
+      return (
+        <li className="nav-item" onClick={this.onClickTab}>
+          <a className={'workspace__tab nav-link ' + (file.active ? 'active' : '')} href="#">
+            {file.title}
+          </a>
+        </li>
+      );
+    });
     return (
       <ul className={className + " nav nav-tabs"}>
-        <li className="nav-item">
-          <a className="workspace__tab nav-link active" href="#">test1.js</a>
-        </li>
-        <li className="nav-item">
-          <a className="workspace__tab nav-link" href="#">test2.js</a>
-        </li>
-        <li className="nav-item">
-          <a className="workspace__tab nav-link" href="#">test3.js</a>
-        </li>
-        <li className="nav-item">
-          <a className="workspace__tab nav-link" href="#">test4.js</a>
-        </li>
+        {tabElements}
       </ul>
     );
   }
+};
+
+Tabs.propTypes = {
+	files: React.PropTypes.array
+};
+
+Tabs.defaultProps = {
+  files: [
+    {
+      title: 'test1.js',
+      active: true
+    },
+    {
+      title: 'test2.js',
+      active: false
+    },
+    {
+      title: 'test3.js',
+      active: false
+    },
+    {
+      title: 'test4.js',
+      active: false
+    }
+  ]
 };
 
 export default Tabs;
