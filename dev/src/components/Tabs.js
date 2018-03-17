@@ -10,19 +10,27 @@ class Tabs extends React.Component {
     }
   }
 
-  onChangeFile(index) {
+  changeActiveTab(index) {
+    this.state.files.forEach(file => {
+      file.active = false;
+    });
     
+    this.state.files[index].active = true;
+    
+    this.setState({
+      files: this.state.files
+    });
   }
   
-  onClickTab() {
-     console.log('test');
+  handleClickTab(index) {
+    this.changeActiveTab(index);
   }
   
   render() {
     const className = this.props.className;
-    const tabElements = this.state.files.map(file => {
+    const tabElements = this.state.files.map((file, i) => {
       return (
-        <li className="nav-item" onClick={this.onClickTab}>
+        <li className="nav-item" onClick={(e) => {this.handleClickTab(i)}}>
           <a className={'workspace__tab nav-link ' + (file.active ? 'active' : '')} href="#">
             {file.title}
           </a>
