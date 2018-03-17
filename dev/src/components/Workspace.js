@@ -30,7 +30,6 @@ class Workspace extends React.Component {
   }
 
   render() {
-    console.log(this.state.files[this.state.activeFileIndex].code);
     return (
       <div className="workspace">
         <Tabs
@@ -40,7 +39,8 @@ class Workspace extends React.Component {
           activeFileIndex={this.state.activeFileIndex}
         />
         <Editor 
-          className="workspace__editor" 
+          className="workspace__editor"
+          changeEditorCode={this.changeEditorCode}
           code={this.state.files[this.state.activeFileIndex].code}
         />
       </div>

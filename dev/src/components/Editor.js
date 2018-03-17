@@ -14,6 +14,7 @@ class Editor extends React.Component {
   }
   
   handleChange(value) {
+    this.props.changeEditorCode(value);
     this.setState({
       value: value
     })
