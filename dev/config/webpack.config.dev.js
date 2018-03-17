@@ -144,4 +144,7 @@ module.exports = {
         inline: false,
         disableHostCheck: true
     },
+    externals: {
+      jquery: 'jQuery',
+    }
 };

@@ -8,30 +8,54 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'test'
+      value: props.code
     }
+    this.handleChange = this.handleChange.bind(this);
   }
-
+  
+  handleChange(value) {
+    this.props.changeEditorCode(value);
+    this.setState({
+      value: value
+    })
+  }
+  
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      value: nextProps.code
+    })
+  }
+  
   render() {
-    var options = {
-      lineNumbers: true,
-      mode: 'javascript',
-      theme: 'material'
-    };
+    var options = this.props.options;
+    var className = this.props.className;
     return (
       <CodeMirror
+        className={className}
         value={this.state.value}
         options={options}
         onBeforeChange={(editor, data, value) => {
-          this.setState({
-            value: value
-          });
+          this.handleChange(value);
         }}
         onChange={(editor, value) => {
-          console.log('controlled', {value});
+          // console.log('controlled', {value});
         }}
       />
     );
+  }
+};
+
+Editor.propTypes = {
+  index: React.PropTypes.number,
+	options: React.PropTypes.object
+};
+
+Editor.defaultProps = {
+  index: 0,
+  options: {
+    lineNumbers: true,
+    mode: 'javascript',
+    theme: 'material'
   }
 };
 

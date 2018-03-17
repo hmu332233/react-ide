@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Hello from 'components/Hello';
 import Editor from 'components/Editor'
+import Workspace from 'components/Workspace'
 import Runner from 'api/Runner'
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
         return (
           <div>
           	<Hello name={`React with Webpack2 (${this.state.number})`}/>
-          	<Editor />
+          	<Workspace />
           </div>
         );
     }
