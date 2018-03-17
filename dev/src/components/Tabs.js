@@ -5,33 +5,21 @@ import Editor from './Editor'
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      files: props.files
-    }
+    
+    this.handleClickTab = this.handleClickTab.bind(this);
   }
 
-  changeActiveTab(index) {
-    this.state.files.forEach(file => {
-      file.active = false;
-    });
-    
-    this.state.files[index].active = true;
-    
-    this.setState({
-      files: this.state.files
-    });
-  }
-  
   handleClickTab(index) {
-    this.changeActiveTab(index);
+    this.props.changeActiveTab(index);
   }
   
   render() {
     const className = this.props.className;
-    const tabElements = this.state.files.map((file, i) => {
+    const tabElements = this.props.files.map((file, i) => {
+      let isActive = (i === this.props.activeFileIndex)
       return (
         <li className="nav-item" onClick={(e) => {this.handleClickTab(i)}}>
-          <a className={'workspace__tab nav-link ' + (file.active ? 'active' : '')} href="#">
+          <a className={'workspace__tab nav-link ' + (isActive ? 'active' : '')} href="#">
             {file.title}
           </a>
         </li>
@@ -46,7 +34,8 @@ class Tabs extends React.Component {
 };
 
 Tabs.propTypes = {
-	files: React.PropTypes.array
+	files: React.PropTypes.array,
+  activeFileIndex: React.PropTypes.number
 };
 
 Tabs.defaultProps = {
