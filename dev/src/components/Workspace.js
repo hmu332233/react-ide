@@ -10,12 +10,17 @@ class Workspace extends React.Component {
       files: props.files,
       activeFileIndex: 0
     };
-    
+   
+    this.changeEditorCode = this.changeEditorCode.bind(this);
     this.changeActiveTab = this.changeActiveTab.bind(this);
   }
 
-  handleChangeFile(index, code) {
-    
+  changeEditorCode(code) {
+    const activeFileIndex = this.state.activeFileIndex;
+    this.state.files[activeFileIndex].code = code;
+    this.setState({
+      files: this.state.files
+    });
   }
 
   changeActiveTab(index) {
@@ -25,15 +30,19 @@ class Workspace extends React.Component {
   }
 
   render() {
+    console.log(this.state.files[this.state.activeFileIndex].code);
     return (
       <div className="workspace">
         <Tabs
           className="workspace__tabs"
-          files={this.state.props}
+          files={this.state.files}
           changeActiveTab={this.changeActiveTab}
           activeFileIndex={this.state.activeFileIndex}
         />
-        <Editor className="workspace__editor" />
+        <Editor 
+          className="workspace__editor" 
+          code={this.state.files[this.state.activeFileIndex].code}
+        />
       </div>
     );
   }

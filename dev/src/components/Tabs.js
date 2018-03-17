@@ -18,7 +18,7 @@ class Tabs extends React.Component {
     const tabElements = this.props.files.map((file, i) => {
       let isActive = (i === this.props.activeFileIndex)
       return (
-        <li className="nav-item" onClick={(e) => {this.handleClickTab(i)}}>
+        <li className="nav-item" onClick={(e) => {this.handleClickTab(i)}} key={`${file.title}_${i}`}>
           <a className={'workspace__tab nav-link ' + (isActive ? 'active' : '')} href="#">
             {file.title}
           </a>
@@ -34,29 +34,11 @@ class Tabs extends React.Component {
 };
 
 Tabs.propTypes = {
-	files: React.PropTypes.array,
+	changeActiveTab: React.PropTypes.func,
   activeFileIndex: React.PropTypes.number
 };
 
 Tabs.defaultProps = {
-  files: [
-    {
-      title: 'test1.js',
-      active: true
-    },
-    {
-      title: 'test2.js',
-      active: false
-    },
-    {
-      title: 'test3.js',
-      active: false
-    },
-    {
-      title: 'test4.js',
-      active: false
-    }
-  ]
 };
 
 export default Tabs;

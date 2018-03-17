@@ -8,15 +8,20 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'test'
+      value: props.code
     }
-    
     this.handleChange = this.handleChange.bind(this);
   }
   
   handleChange(value) {
     this.setState({
       value: value
+    })
+  }
+  
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      value: nextProps.code
     })
   }
   
