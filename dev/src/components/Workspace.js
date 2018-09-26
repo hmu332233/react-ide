@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Tabs from './Tabs'
 import Editor from './Editor'
@@ -49,7 +50,7 @@ class Workspace extends React.Component {
 }
 
 Workspace.propTypes = {
-	files: React.PropTypes.array
+	files: PropTypes.array
 };
 
 Workspace.defaultProps = {

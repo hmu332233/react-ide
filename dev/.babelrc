@@ -1,0 +1,19 @@
+{
+  "presets": ["env", "react"],
+  "plugins" : [
+    "transform-async-to-generator",
+    [
+      "module-resolver",
+      {
+        "root": "./src",
+        "alias": {
+          "components": "./src/components",
+          "containers": "./src/containers",
+          "actions": "./src/actions",
+          "api": "./src/api",
+          "hocs": "./src/hocs"
+        }
+      }      
+    ]
+  ]
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Editor from './Editor'
 
@@ -34,8 +35,8 @@ class Tabs extends React.Component {
 };
 
 Tabs.propTypes = {
-	changeActiveTab: React.PropTypes.func,
-  activeFileIndex: React.PropTypes.number
+	changeActiveTab: PropTypes.func,
+  activeFileIndex: PropTypes.number
 };
 
 Tabs.defaultProps = {

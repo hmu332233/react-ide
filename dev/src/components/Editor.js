@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Controlled  as CodeMirror} from 'react-codemirror2'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript';
@@ -46,8 +47,8 @@ class Editor extends React.Component {
 };
 
 Editor.propTypes = {
-  index: React.PropTypes.number,
-	options: React.PropTypes.object
+  index: PropTypes.number,
+	options: PropTypes.object
 };
 
 Editor.defaultProps = {
