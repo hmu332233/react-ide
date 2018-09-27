@@ -11,7 +11,8 @@
           "containers": "./src/containers",
           "actions": "./src/actions",
           "api": "./src/api",
-          "hocs": "./src/hocs"
+          "hocs": "./src/hocs",
+          "common": "./src/common"
         }
       }      
     ]

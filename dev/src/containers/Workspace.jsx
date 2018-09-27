@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import Tabs from './Tabs'
-import Editor from './Editor'
+import Tabs from 'components/Tabs'
+import Editor from 'components/Editor'
 
 class Workspace extends React.Component {
   constructor(props) {
